@@ -1,0 +1,794 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+    <link rel="canonical" href="https://f0nesec.github.io/2026/01/15/零成本搭建个人博客网站/"/>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="F0ne">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一、想法相信每位 IT 从业者都希望拥有一个属于自己的博客网站。大约花了一天时间，我尝试了几种方法，最终找到了可以用最低成本将自己的网站推送到互联网上的方案。考虑到自身，仅通过公众号发布文章总显得有些单一，而且搜索引擎一般无法检索到公众号内容，导致之前写过的一些文章只能在公众号平台上阅读。所以，我萌生了搭建个人博客网站的想法。考虑到囊中羞涩，本着能不花钱就白嫖的原则，我最终选择通过 Hexo 和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="零成本搭建个人博客网站">
+<meta property="og:url" content="https://f0nesec.github.io/2026/01/15/%E9%9B%B6%E6%88%90%E6%9C%AC%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/index.html">
+<meta property="og:site_name" content="F0ne&#39;Blog">
+<meta property="og:description" content="一、想法相信每位 IT 从业者都希望拥有一个属于自己的博客网站。大约花了一天时间，我尝试了几种方法，最终找到了可以用最低成本将自己的网站推送到互联网上的方案。考虑到自身，仅通过公众号发布文章总显得有些单一，而且搜索引擎一般无法检索到公众号内容，导致之前写过的一些文章只能在公众号平台上阅读。所以，我萌生了搭建个人博客网站的想法。考虑到囊中羞涩，本着能不花钱就白嫖的原则，我最终选择通过 Hexo 和">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://f0nesec.github.io/img/blog/Personal-blog-building/one.png">
+<meta property="article:published_time" content="2026-01-15T06:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-15T08:13:20.444Z">
+<meta property="article:author" content="F0ne">
+<meta property="article:tag" content="GitHub Pages">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://f0nesec.github.io/img/blog/Personal-blog-building/one.png">
+  
+  
+  
+  <title>零成本搭建个人博客网站 - F0ne&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"f0nesec.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":true,"scope":["home","tag","archives","category","about"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":99},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>F0ne&#39;Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blog/Personal-blog-building/two.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">零成本搭建个人博客网站</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        F0ne
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-15 14:00" pubdate>
+          2026年1月15日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="博客建设"
+        id="heading-2bd3ad4f5cb752ef52ac0ddd4304fb01" role="tab" data-toggle="collapse" href="#collapse-2bd3ad4f5cb752ef52ac0ddd4304fb01"
+        aria-expanded="true"
+      >
+        博客建设
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-2bd3ad4f5cb752ef52ac0ddd4304fb01"
+           role="tabpanel" aria-labelledby="heading-2bd3ad4f5cb752ef52ac0ddd4304fb01">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/01/15/%E9%9B%B6%E6%88%90%E6%9C%AC%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/" title="零成本搭建个人博客网站"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">零成本搭建个人博客网站</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">零成本搭建个人博客网站</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="一、想法"><a href="#一、想法" class="headerlink" title="一、想法"></a>一、想法</h2><p>相信每位 IT 从业者都希望拥有一个属于自己的博客网站。大约花了一天时间，我尝试了几种方法，最终找到了可以用最低成本将自己的网站推送到互联网上的方案。考虑到自身，仅通过公众号发布文章总显得有些单一，而且搜索引擎一般无法检索到公众号内容，导致之前写过的一些文章只能在公众号平台上阅读。所以，我萌生了搭建个人博客网站的想法。考虑到囊中羞涩，本着能不花钱就白嫖的原则，我最终选择通过 Hexo 和 GitHub Pages 组合来搭建个人博客网站。</p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-1.png" srcset="/img/loading.gif" lazyload alt="https:&#x2F;&#x2F;f0nesec.github.io"></p>
+<h2 id="二、建站过程"><a href="#二、建站过程" class="headerlink" title="二、建站过程"></a>二、建站过程</h2><div class="note note-warning">
+            <p>提示 🔔</p><p>演示会在 MacOS 系统部署，对于 Windows 和 Linux 而言，原理基本类似，无非安装软件的方式不同。</p>
+          </div>
+
+<p>搭建个人网站的工具非常多，但由于自身代码能力有限，手动从零开发一套完整源码并不现实，因此日常写作更倾向于使用 Markdown 文本格式。在公众号平台上，我通常会将写好的 Markdown 文档直接转换为公众号可识别的内容，稍作修改即可发布，这大大减少了排版和字体调整的时间成本。为了实现<strong>一次写作，多处发布</strong>，可以借助 Hexo 工具将 Markdown 文档生成静态网页，并通过 GitHub Pages 进行托管，从而将内容发布到互联网。当然，整个过程中也一些小的插曲，例如图片资源的保存方式、文章模板的选择、配置文件的修改以及部署时出现的各种报错。</p>
+<h3 id="2-1-安装-Hexo"><a href="#2-1-安装-Hexo" class="headerlink" title="2.1 安装 Hexo"></a>2.1 安装 Hexo</h3><p>根据 Hexo 官网文档执行一些必要的程序安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">https://hexo.io/zh-cn/docs/<br></code></pre></td></tr></table></figure>
+
+<div class="note note-danger">
+            <p>注意 ⚠️</p><p>需要提前安装 Node.js 和 Git 程序，<strong>注意：</strong> 国内网络可能下载较慢甚至无法下载，建议使用一些科学上网工具。</p>
+          </div>
+
+<p>对于 Macos 首先需要安装 brew，它可以帮助我们管理系统的软件包，很多软件工具都可以通过该工具安装。</p>
+<p>使用 brew 安装 Git 和 Node.js。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install git<br>brew install node<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-2.png" srcset="/img/loading.gif" lazyload></p>
+<p>通过 npm 安装 Hexo，<strong>注意：</strong> 安装 Node.js 后即可直接使用 npm 来安装 Hexo 等工具。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g hexo-cli<br></code></pre></td></tr></table></figure>
+
+<p>如果是 Windows 系统，可在 Git 和 Node.js 官网下载安装包执行安装。</p>
+<h3 id="2-2-Hexo-初始化"><a href="#2-2-Hexo-初始化" class="headerlink" title="2.2 Hexo 初始化"></a>2.2 Hexo 初始化</h3><p>安装完 Hexo 后，首先进行项目初始化，期间会向 GitHub 下载一些默认的依赖。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo init F0ne<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-3.png" srcset="/img/loading.gif" lazyload></p>
+<p>初始化完成后，会自动创建一个目录（以项目名称命名），该目录包含一些配置文件，这里挑选常用的进行说明。</p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-4.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><code>_config.yml：</code> Hexo 的核心配置文件，包含一些全局配置信息。</li>
+<li><code>node_modules：</code> 插件目录，必要的时候需要修改一些插件配置信息，<strong>注意：</strong> 每个项目都有自己的插件目录，如果历史已经下载了某个插件，后来又新建了一个项目，该项目不会加载历史安装的插件，而是需要我们重新执行安装：<code>npm install hexo-deployer-git --save</code>。</li>
+<li><code>source：</code> 包含我们写的 markdown 文件，其中 <code>_posts</code> 为默认的文章目录，存放首页文章内容，通过 <code>hexo new name</code> 创建的页面会单独在 <code>source</code> 创建一个目录。</li>
+<li><code>themes</code> 存放主题目录，我们可以下载开发者创建好的主题，放置到该目录，通过修改项目的 <code>_config.yml</code> 文件 <code>theme</code> 字段使用不同主题，当然如果直接通过 <code>npm</code> 下载主题则会放置到 <code>node_modules</code> 目录。</li>
+</ul>
+<p>通过 <code>hexo s</code> 启动项目，如果没有任何报错，访问 <a target="_blank" rel="noopener" href="http://locahost:4000/">http://locahost:4000</a> 即可查看初始的网站内容。</p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-6.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-3-配置-Hexo-主题"><a href="#2-3-配置-Hexo-主题" class="headerlink" title="2.3 配置 Hexo 主题"></a>2.3 配置 Hexo 主题</h3><p>Hexo 默认的主题不太美观，我们可在官网主题栏目查找自己喜欢的类型，下载项目源码放置到 <code>themes</code> 目录，部分主题支持 npm 下载，也可通过该方式下载到插件目录。</p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-7.png" srcset="/img/loading.gif" lazyload></p>
+<p>我最终选择了 <code>hexo-theme-fluid</code> 主题，它完全满足我的需求。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># GitHub</span><br>https://github.com/fluid-dev/hexo-theme-fluid<br><br><span class="hljs-comment"># docs 文档</span><br>https://hexo.fluid-dev.com/docs/<br></code></pre></td></tr></table></figure>
+
+<p><strong>对于 hexo-theme-fluid 主题的一些注意事项：</strong></p>
+<ul>
+<li>注意主题的安装方式，不同的安装方式主题的放置目录也不同。</li>
+<li>文档中介绍建议创建 <code>_config.fluid.yml</code> 副本，该副本会覆盖主配置文件 <code>_config.yml</code> ，修改 <code>_config.fluid.yml</code> 副本可实现全局配置，但对于 deploy 配置还是需要在 <code>_config.yml</code> 中配置，不然不会生效（该配置用于从本地提交代码只 GitHub），建议<code>_config.fluid.yml</code> 副本和主配置文件保持一致。</li>
+</ul>
+<h4 id="2-3-1-配置分享"><a href="#2-3-1-配置分享" class="headerlink" title="2.3.1 配置分享"></a>2.3.1 配置分享</h4><p>全局配置文件 <code>_config.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># Hexo Configuration</span><br><span class="hljs-comment">## Docs: https://hexo.io/docs/configuration.html</span><br><span class="hljs-comment">## Source: https://github.com/hexojs/hexo/</span><br><br><span class="hljs-comment"># Site</span><br><span class="hljs-comment"># 一些网站默认配置，官网有每个参数的详细说明</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">F0ne&#x27;Blog</span><br><span class="hljs-attr">subtitle:</span> <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-attr">description:</span> <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-attr">keywords:</span><br><span class="hljs-attr">author:</span> <span class="hljs-string">F0ne</span><br><span class="hljs-attr">language:</span> <span class="hljs-string">zh-CN</span><br><span class="hljs-attr">timezone:</span> <span class="hljs-string">&#x27;Asia/Shanghai&#x27;</span><br><br><span class="hljs-comment"># URL</span><br><span class="hljs-comment">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="hljs-comment"># 这里配置为自己GitHub创建的GitHub Pages域名，其余不用动</span><br><span class="hljs-attr">url:</span> <span class="hljs-string">https://name.github.io</span><br><span class="hljs-attr">permalink:</span> <span class="hljs-string">:year/:month/:day/:title/</span><br><span class="hljs-attr">permalink_defaults:</span><br><span class="hljs-attr">pretty_urls:</span><br>  <span class="hljs-attr">trailing_index:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br>  <span class="hljs-attr">trailing_html:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br><br><span class="hljs-string">...</span><br><span class="hljs-string">snip</span> <span class="hljs-comment"># 这里均默认配置</span><br><span class="hljs-string">...</span><br><br><span class="hljs-comment"># Extensions</span><br><span class="hljs-comment">## Plugins: https://hexo.io/plugins/</span><br><span class="hljs-comment">## Themes: https://hexo.io/themes/</span><br><span class="hljs-comment"># 配置主题</span><br><span class="hljs-attr">theme:</span> <span class="hljs-string">fluid</span><br><br><span class="hljs-comment"># Deployment</span><br><span class="hljs-comment">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="hljs-comment"># 配置 GitHub Pages，用于提交代码至GitHub</span><br><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">git@github.com:username/username.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">main</span><br>  <span class="hljs-attr">message:</span> <span class="hljs-string">Power</span> <span class="hljs-string">by</span> <span class="hljs-string">F0ne</span> <span class="hljs-comment"># 自动部署commit备注，可不填</span><br></code></pre></td></tr></table></figure>
+
+<p>主题配置文件：配置文件每一项均有中文说明，按需配置即可。</p>
+<h3 id="2-4-创建-GitHub-Pages"><a href="#2-4-创建-GitHub-Pages" class="headerlink" title="2.4 创建 GitHub Pages"></a>2.4 创建 GitHub Pages</h3><p>登录 GitHub，点击创建储存库，然后输入自己 GitHub 名称，其余保持默认，<strong>注意：</strong> 一定要满足 <code>username.github.io</code> 格式，其中 username 为自己 GitHub 名称，<strong>其次</strong>，一定要选择共享，否则无法开启 GitHub Pages。</p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-8.png" srcset="/img/loading.gif" lazyload></p>
+<p>配置 ssh 私钥进行 Git 上传，点击存储库<code>Settings</code>-<code>Deploy keys</code>，将本地生成的 ssh 私钥添加至存储库。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t ed25519<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-9.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-10.png" srcset="/img/loading.gif" lazyload></p>
+<p>通过 ssh 测试配置是否正常，出现如下响应代表可正常上传代码，<strong>注意：</strong> 关于 Git 上传的配置文件已在上面说明，需完成全局配置文件 <code>_config.yml</code> 中 <code>deploy</code> 字段配置（参见 2.3.1 配置分享）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-11.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-5-部署代码至-GitHub-Pages"><a href="#2-5-部署代码至-GitHub-Pages" class="headerlink" title="2.5 部署代码至 GitHub Pages"></a>2.5 部署代码至 GitHub Pages</h3><p>安装 Hexo Git 插件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 注意：在项目根目录运行</span><br>npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
+
+<p>主题和配置文件均配置完成后，可以写一些测试的 Markdown 文档，然后通过 Hexo Git 功能将代码部署至 GitHub Pages。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># --debug 可选，用于排查错误</span><br>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d --debug<br></code></pre></td></tr></table></figure>
+
+<div class="note note-danger">
+            <p>注意 ⚠️</p><p>这里需要特别注意，在提交代码前一定要设置好用户名和邮箱，不然你的 GitHub 作者部分会显示灰色。</p>
+          </div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 设置用户名</span><br>git config --global user.name <span class="hljs-string">&quot;f0nesec&quot;</span><br><br><span class="hljs-comment"># 设置邮箱</span><br>git config --global user.email <span class="hljs-string">&quot;xxx@xxx&quot;</span><br><br><span class="hljs-comment"># 查看配置</span><br>git config --global --list<br></code></pre></td></tr></table></figure>
+
+<p><strong>不添加或添加错误时页面用户会显示为灰色，看着很奇怪：</strong></p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-12.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>正确添加邮箱和用户名：</strong></p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-13.png" srcset="/img/loading.gif" lazyload></p>
+<p>部署成功即可在存储库看到代码上线。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs text">❯ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d --debug<br>INFO  Validating config<br>INFO  Deleted database.<br>INFO  Deleted public folder.<br>INFO  Validating config<br>INFO  Start processing<br>INFO  hexo-blog-encrypt: encrypting &quot;TombWatcher 靶机 WP&quot; based on the password configured in Front-matter with theme: default.<br>INFO<br>------------------------------------------------<br>|                                              |<br>|     ________  __            _        __      |<br>|    |_   __  |[  |          (_)      |  ]     |<br>|      | |_ \_| | | __   _   __   .--.| |      |<br>|      |  _|    | |[  | | | [  |/ /&#x27;`\&#x27; |      |<br>|     _| |_     | | | \_/ |, | || \__/  |      |<br>|    |_____|   [___]&#x27;.__.&#x27;_/[___]&#x27;.__.;__]     |<br>|                                              |<br>|             感谢使用 Fluid 主题              |<br>|    文档: https://hexo.fluid-dev.com/docs/    |<br>|                                              |<br>------------------------------------------------<br><br>INFO  Files loaded in 108 ms<br>INFO  Generated: local-search.xml<br>...<br>snip<br>...<br>07:36:05.260 INFO  Copying files from extend dirs...<br>[main 6dbef3b] Power by F0ne<br> 2 files changed, 3 insertions(+), 3 deletions(-)<br>Enumerating objects: 15, done.<br>Counting objects: 100% (15/15), done.<br>Delta compression using up to 8 threads<br>Compressing objects: 100% (4/4), done.<br>Writing objects: 100% (8/8), 627 bytes | 627.00 KiB/s, done.<br>Total 8 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)<br>remote: Resolving deltas: 100% (3/3), completed with 3 local objects.<br>To github.com:f0nesec/f0nesec.github.io.git<br>   bb9bd9d..6dbef3b  HEAD -&gt; master<br>branch &#x27;main&#x27; set up to track &#x27;git@github.com:f0nesec/f0nesec.github.io.git/master&#x27;.<br>07:36:09.028 INFO  Deploy done: git<br></code></pre></td></tr></table></figure>
+
+<p>点击存储库<code>Settings</code>-<code>pages</code>页面，设置 GitHub Pages main 分支代码部署（上传 main 分支默认会自动开启部署）。</p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-14.png" srcset="/img/loading.gif" lazyload></p>
+<p>大约等待几分钟，即可在互联网访问 <a target="_blank" rel="noopener" href="https://username.github.io/">https://username.github.io</a> 网站。</p>
+<h2 id="三、其他说明"><a href="#三、其他说明" class="headerlink" title="三、其他说明"></a>三、其他说明</h2><p>截至目前网站已经部署完成，后续只需要编写 Markdown 文档，然后通过 Hexo 进行推送即可。当然了，如果资金允许的情况，完全可以购买一个 VPS，在本地使用 Hexo 将 Markdown 文档构建为 html，然后再将整个 public 目录上传至服务器，最后通过中间件将其部署至互联网，但这样一来，你会增加域名解析、网站备案、SSL 证书等一系列问题，似乎托管至 GitHub Pages 是一个不错的选择，但缺点就是访问卡慢，有时还需要挂载代理访问。</p>
+<p>关于网站图片的问题，为了省事我选择将图片和代码一并上传至 GitHub 中。因为文章首先会发布微信公众号，其次再发布到博客网站，对于微信公众号它会在线加载图床图片，然后将其压缩另存到微信公众号服务器中，所以他只需要访问图床一次，如果博客网站也使用图床图片，他无法将其自动存放本地，这样就会增加图床的下载流量，图床的上传流量免费，下载却是收费的，所有，我选择二次加工，通过脚本的方式，将 Markdown 文本包含的图片下载至本地，然后一并托管至 GitHub 存储库中，虽然有点费劲，但是为了节约成本暂时先这样吧。</p>
+<h3 id="3-1-文章加密"><a href="#3-1-文章加密" class="headerlink" title="3.1 文章加密"></a>3.1 文章加密</h3><p>由于官方的限制一些靶机的 WriteUp 需要加密发布，以 HackTheBox 平台为例，官方不允许学习者直接将活跃机器的 WriteUp 发布到互联网，这样会破坏学习环境（最重要的是影响商业价值），只允许学习者通过加密的方式将器发布出来，加密的密码一般为机器的用户 hash 值，解释一下，Windows 一般会以 Administrator 用户 hash 作为密码，Linux 则以 <code>/etc/shadow</code> 中 root 用户 hash 作为密码，回归到博客，我们可以通过 <code>hexo-blog-encrypt</code>  插件设置文章密码，只需要在 Markdown 开头 <code>Front-matter</code> 处定义密码，这样用户就必须输入正确密码才能访问。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 注意：在项目根目录运行</span><br>npm install hexo-blog-encrypt --save<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">TombWatcher</span> <span class="hljs-string">靶机</span> <span class="hljs-string">WP</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2026-01-13 11:20:00</span><br><span class="hljs-attr">tags:</span> [<span class="hljs-string">Windows</span>, <span class="hljs-string">AD</span>]<br><span class="hljs-attr">categories:</span> <span class="hljs-string">HackTheBox</span><br><span class="hljs-attr">category_bar:</span> <span class="hljs-literal">true</span><br><span class="hljs-attr">index_img:</span> <span class="hljs-string">/img/one/one.png</span><br><span class="hljs-attr">banner_img:</span> <span class="hljs-string">/img/one/two.png</span><br><span class="hljs-comment"># 设置密码和一些提示</span><br><span class="hljs-attr">password:</span> <span class="hljs-string">f0ne</span><br><span class="hljs-attr">abstract:</span> <span class="hljs-string">有东西被加密了,</span> <span class="hljs-string">请输入密码查看.</span><br><span class="hljs-attr">message:</span> <span class="hljs-string">测试使用密码为：f0ne</span><br><span class="hljs-attr">wrong_pass_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个密码看着不太对,</span> <span class="hljs-string">请再试试.</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>效果展示：</strong></p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-15.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-16.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-17.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><div class="note note-success">
+            <p>如果我的文章对您有帮助，或者您希望与我交流，欢迎点击关于我，通过页面微信公众号与我联系。 😊😊</p><p>如果您发现文章存在某一错误，欢迎通过邮箱或 Discord 与我联系，在此表示衷心的感谢。 🫡🫡</p><p>最后，祝您生活愉快！🌞✨</p>
+          </div>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/" class="category-chain-item">博客建设</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+      
+        <a href="/tags/GitHub-Pages/" class="print-no-link">#GitHub Pages</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>零成本搭建个人博客网站</div>
+      <div>https://f0nesec.github.io/2026/01/15/零成本搭建个人博客网站/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>F0ne</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年1月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/10/OSCP-TombWatcher/" title="测试文章">
+                        <span class="hidden-mobile">测试文章</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Copyright © 2026-2026 F0ne. All rights reserved.<br> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span> Powered by Hexo </span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
