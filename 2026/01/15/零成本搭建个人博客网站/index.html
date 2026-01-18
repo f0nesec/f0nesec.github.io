@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://f0nesec.github.io/img/blog/Personal-blog-building/one.png">
 <meta property="article:published_time" content="2026-01-15T06:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-15T08:13:20.000Z">
+<meta property="article:modified_time" content="2026-01-18T08:29:41.610Z">
 <meta property="article:author" content="F0ne">
 <meta property="article:tag" content="GitHub Pages">
 <meta property="article:tag" content="Hexo">
@@ -470,7 +470,7 @@
 <p><img src="/img/blog/Personal-blog-building/Personal-blog-building-16.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="/img/blog/Personal-blog-building/Personal-blog-building-17.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><div class="note note-success">
-            <p>如果我的文章对您有帮助，或者您希望与我交流，欢迎点击关于我，通过页面微信公众号与我联系。 😊😊</p><p>如果您发现文章存在某一错误，欢迎通过邮箱或 Discord 与我联系，在此表示衷心的感谢。 🫡🫡</p><p>最后，祝您生活愉快！🌞✨</p>
+            <p>如果我的文章对您有帮助，或者您希望与我交流，欢迎评论留言，或点击关于我通过页面微信公众号与我联系。 😊😊</p><p>如果您发现文章存在任何错误，欢迎通过邮箱或 Discord 与我联系，在此表示衷心的感谢。 🫡🫡</p><p>最后，祝您生活愉快！🌞✨</p>
           </div>
                 
               </div>
@@ -585,6 +585,50 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"f0nesec/blog-comments","repo-id":"R_kgDOQ8DcXg","category":"Announcements","category-id":"DIC_kwDOQ8DcXs4C1GWm","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
