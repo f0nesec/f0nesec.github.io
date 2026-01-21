@@ -1,0 +1,920 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+    <link rel="canonical" href="https://f0nesec.github.io/2026/01/20/knowledge-base-construction/"/>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="F0ne">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="好记性不如烂笔头，在学习新知识时，将其记录下来既能检验学习效果，也能对整个学习过程形成闭环。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过 Material for MkDocs 搭建网络安全知识库">
+<meta property="og:url" content="https://f0nesec.github.io/2026/01/20/knowledge-base-construction/index.html">
+<meta property="og:site_name" content="F0ne&#39;s Blog">
+<meta property="og:description" content="好记性不如烂笔头，在学习新知识时，将其记录下来既能检验学习效果，也能对整个学习过程形成闭环。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://f0nesec.github.io/img/blog/knowledge-base-construction/one.png">
+<meta property="article:published_time" content="2026-01-20T08:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-21T06:14:52.235Z">
+<meta property="article:author" content="F0ne">
+<meta property="article:tag" content="GitHub Pages">
+<meta property="article:tag" content="Material for MkDocs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://f0nesec.github.io/img/blog/knowledge-base-construction/one.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>通过 Material for MkDocs 搭建网络安全知识库 - F0ne&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"f0nesec.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":true,"scope":["home","tag","archives","category","about"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":99},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"dfd62d18e8295d3f3d951773670e6997","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?dfd62d18e8295d3f3d951773670e6997";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>F0ne&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://f0nesec.github.io/f0nesec-docs/" target="_self">
+                <i class="iconfont icon-books"></i>
+                <span>知识库</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blog/knowledge-base-construction/two.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">通过 Material for MkDocs 搭建网络安全知识库</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        F0ne
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-20 16:00" pubdate>
+          2026年1月20日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item 
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="知识库建设"
+        id="heading-1c55147120ff7f55f7c4c8c3ff5f997b" role="tab" data-toggle="collapse" href="#collapse-1c55147120ff7f55f7c4c8c3ff5f997b"
+        aria-expanded="true"
+      >
+        知识库建设
+        <span class="list-group-count">(1)</span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+      <div class="category-collapse collapse show" id="collapse-1c55147120ff7f55f7c4c8c3ff5f997b"
+           role="tabpanel" aria-labelledby="heading-1c55147120ff7f55f7c4c8c3ff5f997b">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2026/01/20/knowledge-base-construction/" title="通过 Material for MkDocs 搭建网络安全知识库"
+           class="list-group-item list-group-item-action
+           active">
+          <span class="category-post">通过 Material for MkDocs 搭建网络安全知识库</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">通过 Material for MkDocs 搭建网络安全知识库</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>在学习新知识时，将其记录下来既能检验学习效果，也能对整个学习过程形成闭环。常言道：好记性不如烂笔头，记录笔记的方法有很多，市面上也有各种免费或收费的工具。结合个人需求，罗列了以下几个需求：</p>
+<ol>
+<li><strong>本地可控</strong>：所有笔记数据完全保存在本地，自己掌握，随时可以迁移或备份。</li>
+<li><strong>互联网发布</strong>：可以轻松发布到互联网上，让更多人方便地访问和查阅。</li>
+<li><strong>多人协作</strong>：个人力量有限，希望能够与其他网络安全爱好者共同维护和撰写笔记。</li>
+<li><strong>零成本</strong>：系统的使用不产生额外费用。</li>
+</ol>
+<h2 id="二、Material-for-MkDocs"><a href="#二、Material-for-MkDocs" class="headerlink" title="二、Material for MkDocs"></a>二、Material for MkDocs</h2><p>参考了一些高质量的知识库后，最终选择通过 Material for MkDocs 来搭建个人知识库。它与个人博客类似，采用 Markdown 转换为 HTML 的方式进行部署，操作非常简单，使用 pipx 安装即可。后期的维护与更新是核心，需要通过不断添加内容来完善整个知识库体系。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Material for MkDocs 官网</span><br>https://squidfunk.github.io/mkdocs-material/<br></code></pre></td></tr></table></figure>
+
+<h2 id="三、网络安全知识库搭建"><a href="#三、网络安全知识库搭建" class="headerlink" title="三、网络安全知识库搭建"></a>三、网络安全知识库搭建</h2><h3 id="3-1-Material-for-MkDocs-环境安装"><a href="#3-1-Material-for-MkDocs-环境安装" class="headerlink" title="3.1 Material for MkDocs 环境安装"></a>3.1 Material for MkDocs 环境安装</h3><p>访问 Material for MkDocs 说明文档，官方建议我们通过 Python 虚拟环境安装 pip 依赖，这里推荐两种安装方式，Windows 和 Macos 均可参考。</p>
+<h4 id="3-1-1-通过-pipx-安装-Material-for-MkDocs"><a href="#3-1-1-通过-pipx-安装-Material-for-MkDocs" class="headerlink" title="3.1.1 通过 pipx 安装 Material for MkDocs"></a>3.1.1 通过 pipx 安装 Material for MkDocs</h4><p>通过 pipx 安装后，会得到 8 个执行程序，具体功能稍后会介绍。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pipx install mkdocs-material<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://f0ne.oss-cn-beijing.aliyuncs.com/typora/image-20260120151223859.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="3-1-2-创建-Python-虚拟环境安装-Material-for-MkDocs"><a href="#3-1-2-创建-Python-虚拟环境安装-Material-for-MkDocs" class="headerlink" title="3.1.2 创建 Python 虚拟环境安装 Material for MkDocs"></a>3.1.2 创建 Python 虚拟环境安装 Material for MkDocs</h4><p>使用 python 创建虚拟环境，然后使用 pip 安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建虚拟环境</span><br>python -m venv venv/<br><span class="hljs-comment"># 使用虚拟环境</span><br><span class="hljs-built_in">source</span> venv/bin/activate<br><span class="hljs-comment"># 安装 mkdocs-material</span><br>pip install mkdocs-material<br></code></pre></td></tr></table></figure>
+
+<div class="note note-info">
+            <p>对于 Windows 虚拟环境，如果在 Powershell 中需要执行 <code>source venv/bin/activate.ps1</code> ，cmd 则执行 <code>source venv/bin/activate.bat</code> 。</p>
+          </div>
+
+<h3 id="3-2-Material-for-MkDocs-参数介绍"><a href="#3-2-Material-for-MkDocs-参数介绍" class="headerlink" title="3.2 Material for MkDocs 参数介绍"></a>3.2 Material for MkDocs 参数介绍</h3><p>日常使用一般只用 mkdocs 和 ghp-import 工具，接下来挑选常用功能进行介绍。</p>
+<ul>
+<li>mkdocs：Material for MkDocs 的核心工具，可将 Markdown 文件生成静态 HTML 文件。主要负责文档构建、配置解析、服务器预览、打包发布等功能。<ul>
+<li>mkdocs new：创建新的 Material for MkDocs 项目。</li>
+<li>mkdocs serve：启动服务，默认会开启本地 8000 端口，如果项目文档较大可通过 –dirtyreload 使得加载速度更快。</li>
+<li>mkdocs build：执行构建，将 Markdown 文档转换为 HTML 文件（放置到 site 目录）。使用 –clean 每次构建前清空 site 目录。</li>
+</ul>
+</li>
+<li>ghp-import：用于将生成的静态网站快速推送到 GitHub Pages。</li>
+</ul>
+<div class="note note-info">
+            <p>具体参数用例将在 GitHub 存储库创建后演示。</p>
+          </div>
+
+<h3 id="3-3-创建-GitHub-Pages"><a href="#3-3-创建-GitHub-Pages" class="headerlink" title="3.3 创建 GitHub Pages"></a>3.3 创建 GitHub Pages</h3><p>关于本栏目可参考历史文章：</p>
+<p><a href="/2026/01/15/blog-building/#2-4-%E5%88%9B%E5%BB%BA-GitHub-Pages">零成本搭建个人博客网站-创建 GitHub Pages 部分</a></p>
+<h3 id="3-4-发布网络安全知识库至-GitHub-Pages"><a href="#3-4-发布网络安全知识库至-GitHub-Pages" class="headerlink" title="3.4 发布网络安全知识库至 GitHub Pages"></a>3.4 发布网络安全知识库至 GitHub Pages</h3><h4 id="3-4-1-发布前初始化配置"><a href="#3-4-1-发布前初始化配置" class="headerlink" title="3.4.1 发布前初始化配置"></a>3.4.1 发布前初始化配置</h4><p>新建一个测试项目，包含 docs 目录和 mkdocs.yml 文件，其中 docs 目录用来存放 Markdown 文本，mkdocs.yml 用来设置网站偏好信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 新建项目</span><br>mkdocs new name<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://f0ne.oss-cn-beijing.aliyuncs.com/typora/image-20260120154812966.png" srcset="/img/loading.gif" lazyload></p>
+<p>根据个人需求可修改网站颜色、字体、目录结构以及插件等信息。</p>
+<p><strong>目录示例：</strong> 可根据个人需求创建不同的知识板块，每个板块通过目录进行区分。</p>
+<p><img src="https://f0ne.oss-cn-beijing.aliyuncs.com/typora/image-20260120155247591.png" srcset="/img/loading.gif" lazyload></p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-05eef982" role="button" aria-expanded="false" aria-controls="collapse-05eef982">
+        <div class="fold-arrow">▶</div>配置文件示例（点击查看）⬅️
+      </div>
+      <div class="fold-collapse collapse" id="collapse-05eef982">
+        <div class="fold-content">
+          <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># 站点基础信息</span><br><span class="hljs-attr">site_name:</span> <span class="hljs-string">F0ne&#x27;s</span> <span class="hljs-string">Docs</span>              <span class="hljs-comment"># 网站标题（显示在浏览器标签页 &amp; 左上角）</span><br><span class="hljs-attr">site_description:</span> <span class="hljs-string">这是一个网络安全知识库。</span>  <span class="hljs-comment"># 网站描述（SEO 用）</span><br><span class="hljs-attr">site_url:</span> <span class="hljs-string">https://f0nesec.github.io/f0nesec-docs/</span>       <span class="hljs-comment"># 站点正式访问地址（GitHub Pages 必填）</span><br><br><span class="hljs-comment"># GitHub 仓库相关（右上角图标）</span><br><span class="hljs-attr">repo_name:</span> <span class="hljs-string">f0nesec/f0nesec-docs</span>   <span class="hljs-comment"># 图标旁显示的文字</span><br><span class="hljs-attr">repo_url:</span> <span class="hljs-string">https://github.com/f0nesec/f0nesec-docs</span>   <span class="hljs-comment"># 仓库地址（右上角跳转）</span><br><span class="hljs-attr">edit_uri:</span> <span class="hljs-string">blob/main/docs/</span> <span class="hljs-comment"># 编辑代码</span><br><br><span class="hljs-comment"># 页脚版权信息</span><br><span class="hljs-comment"># copyright: Copyright &amp;copy; 2026 Martin Donath</span><br><br><span class="hljs-comment"># 额外配置</span><br><span class="hljs-attr">extra:</span><br>  <span class="hljs-attr">generator:</span> <span class="hljs-literal">true</span>   <span class="hljs-comment"># 关闭、开启页脚的 “Made with Material for MkDocs”</span><br><br><span class="hljs-comment"># Markdown 功能扩展</span><br><span class="hljs-attr">markdown_extensions:</span><br><br>  <span class="hljs-comment"># 目录 / 锚点</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">toc:</span><br>      <span class="hljs-attr">permalink:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 每个标题右侧生成一个 ¶ 图标</span><br><br>  <span class="hljs-comment"># 提示框</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">admonition</span>  <span class="hljs-comment"># 启用 !!! note / warning / tip / danger 等提示块</span><br><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">pymdownx.details</span>  <span class="hljs-comment"># 允许提示框折叠（??? note）</span><br><br>  <span class="hljs-comment"># 代码块增强</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">pymdownx.superfences</span>  <span class="hljs-comment"># 允许：提示框里嵌套代码，Mermaid / 多语言代码块</span><br><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">pymdownx.highlight:</span><br>      <span class="hljs-attr">linenums:</span> <span class="hljs-literal">true</span>            <span class="hljs-comment"># 显示代码行号（核心）</span><br>      <span class="hljs-attr">anchor_linenums:</span> <span class="hljs-literal">true</span>     <span class="hljs-comment"># 行号可点击（生成锚点）</span><br>      <span class="hljs-attr">line_spans:</span> <span class="hljs-string">__span</span>        <span class="hljs-comment"># Material 推荐配置（用于高亮/复制）</span><br>      <span class="hljs-attr">pygments_lang_class:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 给代码块加 language-xxx 类名</span><br>      <span class="hljs-attr">auto_title:</span> <span class="hljs-literal">true</span>          <span class="hljs-comment"># 自动显示代码框类型，不定义需要通过 tilte=&quot;&quot;指定</span><br><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">pymdownx.inlinehilite</span> <span class="hljs-comment"># 支持行内代码高亮：`==highlight==`</span><br><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">pymdownx.keys</span> <span class="hljs-comment"># 支持快捷键样式：++ctrl+alt+del++</span><br><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">pymdownx.snippets</span> <span class="hljs-comment"># 支持从外部文件插入代码，例如：--8&lt;-- &quot;code/example.py&quot;</span><br><br><span class="hljs-comment"># 主题配置（Material）</span><br><span class="hljs-attr">theme:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">material</span>          <span class="hljs-comment"># 使用 Material for MkDocs</span><br>  <span class="hljs-attr">language:</span> <span class="hljs-string">zh</span>            <span class="hljs-comment"># 界面语言为中文</span><br>  <span class="hljs-attr">icon:</span><br>    <span class="hljs-attr">repo:</span> <span class="hljs-string">fontawesome/brands/git-alt</span> <span class="hljs-comment"># 使用 FontAwesome 的 GitHub 图标</span><br>  <span class="hljs-comment"># 主题功能</span><br>  <span class="hljs-attr">features:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">content.code.copy</span>     <span class="hljs-comment"># 代码块右上角「复制按钮」</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">content.code.select</span>   <span class="hljs-comment"># 代码块支持鼠标拖拽选择</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">navigation.top</span>        <span class="hljs-comment"># 滚动后显示返回顶部按钮</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">search.suggest</span>        <span class="hljs-comment"># 搜索联想</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">search.highlight</span>      <span class="hljs-comment"># 搜索结果高亮</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">search.share</span>          <span class="hljs-comment"># 搜索结果可分享链接</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">content.action.edit</span>   <span class="hljs-comment"># 开启查看源码</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">content.action.view</span>   <span class="hljs-comment"># 开启编辑源码操作</span><br><br>  <span class="hljs-comment"># 颜色方案</span><br>  <span class="hljs-attr">palette:</span><br>    <span class="hljs-comment"># 默认深色模式</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">media:</span> <span class="hljs-string">&quot;(prefers-color-scheme: dark)&quot;</span><br>      <span class="hljs-attr">scheme:</span> <span class="hljs-string">slate</span><br>      <span class="hljs-attr">primary:</span> <span class="hljs-string">black</span>       <span class="hljs-comment"># 顶部导航栏主色</span><br>      <span class="hljs-attr">accent:</span> <span class="hljs-string">deep</span> <span class="hljs-string">orange</span>   <span class="hljs-comment"># 链接 / 按钮 / 高亮色</span><br>      <span class="hljs-attr">toggle:</span><br>        <span class="hljs-attr">icon:</span> <span class="hljs-string">material/toggle-switch-off-outline</span><br>        <span class="hljs-attr">name:</span> <span class="hljs-string">切换浅色模式</span><br><br>    <span class="hljs-comment"># 可切换的浅色模式</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">media:</span> <span class="hljs-string">&quot;(prefers-color-scheme: light)&quot;</span><br>      <span class="hljs-attr">scheme:</span> <span class="hljs-string">default</span><br>      <span class="hljs-attr">primary:</span> <span class="hljs-string">indigo</span><br>      <span class="hljs-attr">accent:</span> <span class="hljs-string">deep</span> <span class="hljs-string">orange</span><br>      <span class="hljs-attr">toggle:</span><br>        <span class="hljs-attr">icon:</span> <span class="hljs-string">material/toggle-switch</span><br>        <span class="hljs-attr">name:</span> <span class="hljs-string">切换深色模式</span><br><br>    <span class="hljs-comment"># 自动切换，根据系统主题自动切换</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">media:</span> <span class="hljs-string">&quot;(prefers-color-scheme)&quot;</span><br>      <span class="hljs-attr">toggle:</span><br>        <span class="hljs-attr">icon:</span> <span class="hljs-string">material/link</span><br>        <span class="hljs-attr">name:</span> <span class="hljs-string">自动</span><br><br>  <span class="hljs-comment"># 图标</span><br>  <span class="hljs-attr">favicon:</span> <span class="hljs-string">assets/title.png</span>   <span class="hljs-comment"># 浏览器标签页小图标</span><br>  <span class="hljs-attr">logo:</span> <span class="hljs-string">assets/logo.png</span>       <span class="hljs-comment"># 左上角站点 Logo</span><br><br><span class="hljs-comment"># 配置插件</span><br><span class="hljs-attr">plugins:</span><br>  <span class="hljs-comment"># 显示更新创建日期</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">git-revision-date-localized:</span><br>      <span class="hljs-attr">fallback_to_build_date:</span> <span class="hljs-literal">true</span>  <span class="hljs-comment"># 设置文档修改日期</span><br>      <span class="hljs-comment"># enable_creation_date: true  # 设置文档创建日志</span><br>  <span class="hljs-comment"># 显示作者的头像</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">git-committers:</span><br>      <span class="hljs-attr">repository:</span> <span class="hljs-string">f0nesec/f0nesec-docs</span><br>      <span class="hljs-attr">branch:</span> <span class="hljs-string">main</span><br>  <span class="hljs-comment"># 采用压缩和转换技术优化网站</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">optimize</span><br><br><span class="hljs-comment"># 社交链接</span><br><span class="hljs-attr">extra:</span><br>  <span class="hljs-attr">social:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">icon:</span> <span class="hljs-string">fontawesome/brands/github</span><br>      <span class="hljs-attr">link:</span> <span class="hljs-string">https://github.com/f0nesec</span><br>      <span class="hljs-attr">name:</span> <span class="hljs-string">Github</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">icon:</span> <span class="hljs-string">fontawesome/brands/discord</span><br>      <span class="hljs-attr">link:</span> <span class="hljs-string">https://discord.com/invite/MWKGN3AqG</span><br>      <span class="hljs-attr">name:</span> <span class="hljs-string">Discord</span><br><br><span class="hljs-comment"># 配置目录结构</span><br><span class="hljs-attr">nav:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">首页:</span> <span class="hljs-string">index.md</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">Web</span> <span class="hljs-string">应用程序安全:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">概述:</span> <span class="hljs-string">Web-Application-Security/index.md</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">活动目录安全（域控）:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">概述:</span> <span class="hljs-string">Active-Directory-Security/index.md</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">移动应用程序安全:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">概述:</span> <span class="hljs-string">Mobile-Application-Security/index.md</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">本地权限提升:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">概述:</span> <span class="hljs-string">Local-Privilege-Escalation/index.md</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">Windows</span> <span class="hljs-string">本地权限提升:</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">概述:</span> <span class="hljs-string">Local-Privilege-Escalation/Windows/index.md</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">Linux</span> <span class="hljs-string">本地权限提升:</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">概述:</span> <span class="hljs-string">Local-Privilege-Escalation/Linux/index.md</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">横向移动:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">概述:</span> <span class="hljs-string">Lateral-Movement/index.md</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">凭证攻击:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">概述:</span> <span class="hljs-string">Credential-Attacks/index.md</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">代码审计:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">概述:</span> <span class="hljs-string">Code-Audit/index.md</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">检测与规避技术:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">概述:</span> <span class="hljs-string">Detection-Evasion/index.md</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">考试与认证专题:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">概述:</span> <span class="hljs-string">Certifications/index.md</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">OSCP</span> <span class="hljs-string">认证:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">Certifications/OSCP/index.md</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">OSWE</span> <span class="hljs-string">认证:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">Certifications/OSWE/index.md</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">OSEP</span> <span class="hljs-string">认证:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">Certifications/OSEP/index.md</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">OSED</span> <span class="hljs-string">认证:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">Certifications/OSED/index.md</span><br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+<div class="note note-info">
+            <p>如若使用以上配置文件需修改一些提示信息，比如：网站 title、图标、GitHub 链接等，配置文件使用的扩展插件也需要单独安装，更多配置可查看官方文档介绍。</p>
+          </div>
+
+<p><strong>Python 插件安装：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 若 Material for MkDocs 通过 pipx 安装需使用 pipx 安装插件</span><br><span class="hljs-comment"># 文档日期插件</span><br>pipx inject mkdocs-material mkdocs-git-revision-date-localized-plugin<br><span class="hljs-comment"># 展示 GitHub 作者头像</span><br>pipx inject mkdocs-material mkdocs-git-committers-plugin-2<br><br><span class="hljs-comment"># 通过 python 虚拟环境安装 Material for MkDocs 的可直接使用 pip 安装插件</span><br><span class="hljs-comment"># 文档日期插件</span><br>pip inject mkdocs-material mkdocs-git-revision-date-localized-plugin<br><span class="hljs-comment"># 展示 GitHub 作者头像</span><br>pip inject mkdocs-material mkdocs-git-committers-plugin-2<br></code></pre></td></tr></table></figure>
+
+<p><strong>压缩插件安装（不启动图片压缩不需要配置）：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Macos</span><br>brew install pngquant<br><br><span class="hljs-comment"># Windows</span><br>下载exe安装<br></code></pre></td></tr></table></figure>
+
+<p>目录结构和配置文件部署完成后可在本地启动服务，检查无误后再部署至 GitHub。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 启动服务</span><br>mkdocs serve<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://f0ne.oss-cn-beijing.aliyuncs.com/typora/image-20260120155918667.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://f0ne.oss-cn-beijing.aliyuncs.com/typora/image-20260120155857856.png" srcset="/img/loading.gif" lazyload></p>
+<p>将代码推送至 GitHub 共分为两步，首先是项目的源码推送，其次是构建的 HTML 源码推送。当然也可以只推送 HTML 源码，<strong>将项目源码推送至 GitHub 是为了协同维护知识库</strong>。</p>
+<p>通过 Git 部署前需要进行一些初始化配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 初始化git配置</span><br>git init<br><span class="hljs-comment"># 设置推送的GitHub仓库，注意：需要在GitHub配置好公钥</span><br>git remote add origin git@github.com:f0nesec/f0nesec-docs<br><span class="hljs-comment"># 设置邮箱、用户名</span><br>git config --global user.email <span class="hljs-string">&quot;xx@xx.com&quot;</span><br>git config --global user.name <span class="hljs-string">&quot;f0nesec&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>定义 <code>.gitignore</code> 文件，避免敏感信息泄漏：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">.DS_Store<br>**/.DS_Store<br>site/<br>.cache/<br>__pycache__/<br>*.<span class="hljs-built_in">log</span><br>Git.txt<br></code></pre></td></tr></table></figure>
+
+<div class="note note-warning">
+            <p>注意根据个人需求，将不想上传的文件和目录写入 <code>.gitignore</code> 文件。</p>
+          </div>
+
+<h4 id="3-4-2-推送项目源码"><a href="#3-4-2-推送项目源码" class="headerlink" title="3.4.2 推送项目源码"></a>3.4.2 推送项目源码</h4><p>推送项目源码至仓库 main 分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git add .<br>git commit -m <span class="hljs-string">&quot;update by F0ne&quot;</span><br>git push origin main<br></code></pre></td></tr></table></figure>
+
+<p>确认 GitHub 存储库 main 分支代码已经上线。</p>
+<p><img src="https://f0ne.oss-cn-beijing.aliyuncs.com/typora/image-20260120161609256.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="3-4-3-推送-HTML-源码"><a href="#3-4-3-推送-HTML-源码" class="headerlink" title="3.4.3 推送 HTML 源码"></a>3.4.3 推送 HTML 源码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdocs build --clean<br>ghp-import -n -p -f site<br></code></pre></td></tr></table></figure>
+
+<p>推送完成需要在 GitHub 存储库 Settings-Pages 选择发布 gh-pages 分支。</p>
+<p><img src="https://f0ne.oss-cn-beijing.aliyuncs.com/typora/image-20260120161832434.png" srcset="/img/loading.gif" lazyload></p>
+<p>网络安全知识库链接地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">https://f0nesec.github.io/f0nesec-docs<br></code></pre></td></tr></table></figure>
+
+<div class="note note-danger">
+            <p>所有推送过程均在项目根目录进行。</p>
+          </div>
+
+<h2 id="四、补充"><a href="#四、补充" class="headerlink" title="四、补充"></a>四、补充</h2><p>目前，网络安全知识库的整体体系已经初步搭建完成，主要涵盖：Web 应用程序安全、Active Directory 安全（域控）、移动应用程序安全、本地权限提升、横向移动、凭证攻击、代码审计、检测与规避技术，以及考试与认证专题。未来会根据自己的学习情况逐步完善各个板块内容，相信会是一个任重而道远的过程。</p>
+<p><img src="https://f0ne.oss-cn-beijing.aliyuncs.com/typora/image-20260120163534634.png" srcset="/img/loading.gif" lazyload></p>
+<p>最后，欢迎广大安全爱好者加入，共同打造一个全面的中文网络安全知识库。</p>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><div class="note note-success">
+            <p>如果我的文章对您有帮助，或者您希望与我交流，欢迎点击关于我，通过页面微信公众号与我联系。 😊😊</p><p>如果您发现文章存在某一错误，欢迎通过邮箱或 Discord 与我联系，在此表示衷心的感谢。 🫡🫡</p><p>最后，祝您生活愉快！🌞✨</p>
+          </div>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%9F%A5%E8%AF%86%E5%BA%93%E5%BB%BA%E8%AE%BE/" class="category-chain-item">知识库建设</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/GitHub-Pages/" class="print-no-link">#GitHub Pages</a>
+      
+        <a href="/tags/Material-for-MkDocs/" class="print-no-link">#Material for MkDocs</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>通过 Material for MkDocs 搭建网络安全知识库</div>
+      <div>https://f0nesec.github.io/2026/01/20/knowledge-base-construction/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>F0ne</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年1月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/15/blog-building/" title="零成本搭建个人博客网站">
+                        <span class="hidden-mobile">零成本搭建个人博客网站</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"f0nesec/blog-comments","repo-id":"R_kgDOQ8DcXg","category":"Announcements","category-id":"DIC_kwDOQ8DcXs4C1GWm","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Copyright © 2026-2026 F0ne. All rights reserved.<br> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span> Powered by Hexo </span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
