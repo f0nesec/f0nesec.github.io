@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://f0nesec.github.io/img/blog/personal-blog-building/one.png">
 <meta property="article:published_time" content="2026-01-15T06:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-21T06:11:57.628Z">
+<meta property="article:modified_time" content="2026-01-21T06:24:29.082Z">
 <meta property="article:author" content="F0ne">
 <meta property="article:tag" content="GitHub Pages">
 <meta property="article:tag" content="Hexo">
@@ -386,7 +386,7 @@
               <div class="markdown-body">
                 
                 <h2 id="一、想法"><a href="#一、想法" class="headerlink" title="一、想法"></a>一、想法</h2><p>相信每位 IT 从业者都希望拥有一个属于自己的博客网站。大约花了一天时间，我尝试了几种方法，最终找到了可以用最低成本将自己的网站推送到互联网上的方案。考虑到自身，仅通过公众号发布文章总显得有些单一，而且搜索引擎一般无法检索到公众号内容，导致之前写过的一些文章只能在公众号平台上阅读。所以，我萌生了搭建个人博客网站的想法。考虑到囊中羞涩，本着能不花钱就白嫖的原则，我最终选择通过 Hexo 和 GitHub Pages 组合来搭建个人博客网站。</p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-1.png" srcset="/img/loading.gif" lazyload alt="https:&#x2F;&#x2F;f0nesec.github.io"></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-1.png" srcset="/img/loading.gif" lazyload alt="https:&#x2F;&#x2F;f0nesec.github.io"></p>
 <h2 id="二、建站过程"><a href="#二、建站过程" class="headerlink" title="二、建站过程"></a>二、建站过程</h2><div class="note note-warning">
             <p>提示 🔔</p><p>演示会在 MacOS 系统部署，对于 Windows 和 Linux 而言，原理基本类似，无非安装软件的方式不同。</p>
           </div>
@@ -403,7 +403,7 @@
 <p>使用 brew 安装 Git 和 Node.js。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install git<br>brew install node<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-2.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-2.png" srcset="/img/loading.gif" lazyload></p>
 <p>通过 npm 安装 Hexo，<strong>注意：</strong> 安装 Node.js 后即可直接使用 npm 来安装 Hexo 等工具。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install -g hexo-cli<br></code></pre></td></tr></table></figure>
 
@@ -411,9 +411,9 @@
 <h3 id="2-2-Hexo-初始化"><a href="#2-2-Hexo-初始化" class="headerlink" title="2.2 Hexo 初始化"></a>2.2 Hexo 初始化</h3><p>安装完 Hexo 后，首先进行项目初始化，期间会向 GitHub 下载一些默认的依赖。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo init F0ne<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-3.png" srcset="/img/loading.gif" lazyload></p>
 <p>初始化完成后，会自动创建一个目录（以项目名称命名），该目录包含一些配置文件，这里挑选常用的进行说明。</p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-4.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-4.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li><code>_config.yml：</code> Hexo 的核心配置文件，包含一些全局配置信息。</li>
 <li><code>node_modules：</code> 插件目录，必要的时候需要修改一些插件配置信息，<strong>注意：</strong> 每个项目都有自己的插件目录，如果历史已经下载了某个插件，后来又新建了一个项目，该项目不会加载历史安装的插件，而是需要我们重新执行安装：<code>npm install hexo-deployer-git --save</code>。</li>
@@ -421,10 +421,10 @@
 <li><code>themes</code> 存放主题目录，我们可以下载开发者创建好的主题，放置到该目录，通过修改项目的 <code>_config.yml</code> 文件 <code>theme</code> 字段使用不同主题，当然如果直接通过 <code>npm</code> 下载主题则会放置到 <code>node_modules</code> 目录。</li>
 </ul>
 <p>通过 <code>hexo s</code> 启动项目，如果没有任何报错，访问 <a target="_blank" rel="noopener" href="http://locahost:4000/">http://locahost:4000</a> 即可查看初始的网站内容。</p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-5.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-6.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-6.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="2-3-配置-Hexo-主题"><a href="#2-3-配置-Hexo-主题" class="headerlink" title="2.3 配置 Hexo 主题"></a>2.3 配置 Hexo 主题</h3><p>Hexo 默认的主题不太美观，我们可在官网主题栏目查找自己喜欢的类型，下载项目源码放置到 <code>themes</code> 目录，部分主题支持 npm 下载，也可通过该方式下载到插件目录。</p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-7.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-7.png" srcset="/img/loading.gif" lazyload></p>
 <p>我最终选择了 <code>hexo-theme-fluid</code> 主题，它完全满足我的需求。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># GitHub</span><br>https://github.com/fluid-dev/hexo-theme-fluid<br><br><span class="hljs-comment"># docs 文档</span><br>https://hexo.fluid-dev.com/docs/<br></code></pre></td></tr></table></figure>
 
@@ -438,16 +438,16 @@
 
 <p>主题配置文件：配置文件每一项均有中文说明，按需配置即可。</p>
 <h3 id="2-4-创建-GitHub-Pages"><a href="#2-4-创建-GitHub-Pages" class="headerlink" title="2.4 创建 GitHub Pages"></a>2.4 创建 GitHub Pages</h3><p>登录 GitHub，点击创建储存库，然后输入自己 GitHub 名称，其余保持默认，<strong>注意：</strong> 一定要满足 <code>username.github.io</code> 格式，其中 username 为自己 GitHub 名称，<strong>其次</strong>，一定要选择共享，否则无法开启 GitHub Pages。</p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-8.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-8.png" srcset="/img/loading.gif" lazyload></p>
 <p>配置 ssh 私钥进行 Git 上传，点击存储库<code>Settings</code>-<code>Deploy keys</code>，将本地生成的 ssh 私钥添加至存储库。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t ed25519<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-9.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-10.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-9.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-10.png" srcset="/img/loading.gif" lazyload></p>
 <p>通过 ssh 测试配置是否正常，出现如下响应代表可正常上传代码，<strong>注意：</strong> 关于 Git 上传的配置文件已在上面说明，需完成全局配置文件 <code>_config.yml</code> 中 <code>deploy</code> 字段配置（参见 2.3.1 配置分享）。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-11.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-11.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="2-5-部署代码至-GitHub-Pages"><a href="#2-5-部署代码至-GitHub-Pages" class="headerlink" title="2.5 部署代码至 GitHub Pages"></a>2.5 部署代码至 GitHub Pages</h3><p>安装 Hexo Git 插件。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 注意：在项目根目录运行</span><br>npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
 
@@ -461,14 +461,14 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 设置用户名</span><br>git config --global user.name <span class="hljs-string">&quot;f0nesec&quot;</span><br><br><span class="hljs-comment"># 设置邮箱</span><br>git config --global user.email <span class="hljs-string">&quot;xxx@xxx&quot;</span><br><br><span class="hljs-comment"># 查看配置</span><br>git config --global --list<br></code></pre></td></tr></table></figure>
 
 <p><strong>不添加或添加错误时页面用户会显示为灰色，看着很奇怪：</strong></p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-12.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-12.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>正确添加邮箱和用户名：</strong></p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-13.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-13.png" srcset="/img/loading.gif" lazyload></p>
 <p>部署成功即可在存储库看到代码上线。</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs text">❯ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d --debug<br>INFO  Validating config<br>INFO  Deleted database.<br>INFO  Deleted public folder.<br>INFO  Validating config<br>INFO  Start processing<br>INFO  hexo-blog-encrypt: encrypting &quot;TombWatcher 靶机 WP&quot; based on the password configured in Front-matter with theme: default.<br>INFO<br>------------------------------------------------<br>|                                              |<br>|     ________  __            _        __      |<br>|    |_   __  |[  |          (_)      |  ]     |<br>|      | |_ \_| | | __   _   __   .--.| |      |<br>|      |  _|    | |[  | | | [  |/ /&#x27;`\&#x27; |      |<br>|     _| |_     | | | \_/ |, | || \__/  |      |<br>|    |_____|   [___]&#x27;.__.&#x27;_/[___]&#x27;.__.;__]     |<br>|                                              |<br>|             感谢使用 Fluid 主题              |<br>|    文档: https://hexo.fluid-dev.com/docs/    |<br>|                                              |<br>------------------------------------------------<br><br>INFO  Files loaded in 108 ms<br>INFO  Generated: local-search.xml<br>...<br>snip<br>...<br>07:36:05.260 INFO  Copying files from extend dirs...<br>[main 6dbef3b] Power by F0ne<br> 2 files changed, 3 insertions(+), 3 deletions(-)<br>Enumerating objects: 15, done.<br>Counting objects: 100% (15/15), done.<br>Delta compression using up to 8 threads<br>Compressing objects: 100% (4/4), done.<br>Writing objects: 100% (8/8), 627 bytes | 627.00 KiB/s, done.<br>Total 8 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)<br>remote: Resolving deltas: 100% (3/3), completed with 3 local objects.<br>To github.com:f0nesec/f0nesec.github.io.git<br>   bb9bd9d..6dbef3b  HEAD -&gt; master<br>branch &#x27;main&#x27; set up to track &#x27;git@github.com:f0nesec/f0nesec.github.io.git/master&#x27;.<br>07:36:09.028 INFO  Deploy done: git<br></code></pre></td></tr></table></figure>
 
 <p>点击存储库<code>Settings</code>-<code>pages</code>页面，设置 GitHub Pages main 分支代码部署（上传 main 分支默认会自动开启部署）。</p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-14.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-14.png" srcset="/img/loading.gif" lazyload></p>
 <p>大约等待几分钟，即可在互联网访问 <a target="_blank" rel="noopener" href="https://username.github.io/">https://username.github.io</a> 网站。</p>
 <h2 id="三、其他说明"><a href="#三、其他说明" class="headerlink" title="三、其他说明"></a>三、其他说明</h2><p>截至目前网站已经部署完成，后续只需要编写 Markdown 文档，然后通过 Hexo 进行推送即可。当然了，如果资金允许的情况，完全可以购买一个 VPS，在本地使用 Hexo 将 Markdown 文档构建为 html，然后再将整个 public 目录上传至服务器，最后通过中间件将其部署至互联网，但这样一来，你会增加域名解析、网站备案、SSL 证书等一系列问题，似乎托管至 GitHub Pages 是一个不错的选择，但缺点就是访问卡慢，有时还需要挂载代理访问。</p>
 <p>关于网站图片的问题，为了省事我选择将图片和代码一并上传至 GitHub 中。因为文章首先会发布微信公众号，其次再发布到博客网站，对于微信公众号它会在线加载图床图片，然后将其压缩另存到微信公众号服务器中，所以他只需要访问图床一次，如果博客网站也使用图床图片，他无法将其自动存放本地，这样就会增加图床的下载流量，图床的上传流量免费，下载却是收费的，所有，我选择二次加工，通过脚本的方式，将 Markdown 文本包含的图片下载至本地，然后一并托管至 GitHub 存储库中，虽然有点费劲，但是为了节约成本暂时先这样吧。</p>
@@ -478,9 +478,9 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">TombWatcher</span> <span class="hljs-string">靶机</span> <span class="hljs-string">WP</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2026-01-13 11:20:00</span><br><span class="hljs-attr">tags:</span> [<span class="hljs-string">Windows</span>, <span class="hljs-string">AD</span>]<br><span class="hljs-attr">categories:</span> <span class="hljs-string">HackTheBox</span><br><span class="hljs-attr">category_bar:</span> <span class="hljs-literal">true</span><br><span class="hljs-attr">index_img:</span> <span class="hljs-string">/img/one/one.png</span><br><span class="hljs-attr">banner_img:</span> <span class="hljs-string">/img/one/two.png</span><br><span class="hljs-comment"># 设置密码和一些提示</span><br><span class="hljs-attr">password:</span> <span class="hljs-string">f0ne</span><br><span class="hljs-attr">abstract:</span> <span class="hljs-string">有东西被加密了,</span> <span class="hljs-string">请输入密码查看.</span><br><span class="hljs-attr">message:</span> <span class="hljs-string">测试使用密码为：f0ne</span><br><span class="hljs-attr">wrong_pass_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个密码看着不太对,</span> <span class="hljs-string">请再试试.</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>效果展示：</strong></p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-15.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-16.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/img/blog/Personal-blog-building/Personal-blog-building-17.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-15.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-16.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/personal-blog-building/personal-blog-building-17.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><div class="note note-success">
             <p>如果我的文章对您有帮助，或者您希望与我交流，欢迎点击关于我，通过页面微信公众号与我联系。 😊😊</p><p>如果您发现文章存在某一错误，欢迎通过邮箱或 Discord 与我联系，在此表示衷心的感谢。 🫡🫡</p><p>最后，祝您生活愉快！🌞✨</p>
           </div>
@@ -516,9 +516,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
-      
         <a href="/tags/GitHub-Pages/" class="print-no-link">#GitHub Pages</a>
+      
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
       
     </div>
   
